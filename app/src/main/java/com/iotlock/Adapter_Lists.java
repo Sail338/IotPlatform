@@ -1,6 +1,8 @@
 package com.iotlock;
 
+import  android.support.v4.app.Fragment;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -26,8 +28,18 @@ public class Adapter_Lists extends RecyclerView.Adapter<Adapter_Lists.IotViewHol
         return  holder;
     }
     @Override
-    public void onBindViewHolder(IotViewHolder2 holder, final int position) {
+    public void onBindViewHolder(final IotViewHolder2 holder, final int position) {
         holder.stockName.setText(thingList.get(position).name);
+        holder.cv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              //fragment switch
+                AppCompatActivity appCompatActivity = (AppCompatActivity) view.getContext();
+                LockVideoFragment fragment = new LockVideoFragment();
+
+                appCompatActivity.getFragmentManager().beginTransaction().replace(R.id.content_frame2, fragment).addToBackStack(null).commit();
+            }
+        });
 
 
     }
@@ -54,12 +66,14 @@ public class Adapter_Lists extends RecyclerView.Adapter<Adapter_Lists.IotViewHol
             stockName = (TextView)itemView.findViewById(R.id.item_name2);
 
 
+
         }
     }
     public void addItem(LockListThing plate)
     {
         thingList.add(plate);
-        //notifyDataSetChanged();
+        // notifyDataSetChanged();
         notifyItemInserted(thingList.size()-1);
     }
+
 }
