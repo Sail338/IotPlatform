@@ -1,7 +1,6 @@
 package com.iotlock;
 
-import android.content.ClipData;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -36,7 +35,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.IotViewHolder> {
               switch (position){
                   //OPEN LOCK FRAGMENT
                   case 0:
-                      AppCompatActivity activity  =  (AppCompatActivity)view.getContext();
+                        view.getContext().startActivity(new Intent(view.getContext(),LockList.class));
+
 
               }
           }
