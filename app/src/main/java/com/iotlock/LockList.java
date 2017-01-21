@@ -35,7 +35,7 @@ public class LockList extends AppCompatActivity {
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
         li = new ArrayList<>();
 
-        view = (RecyclerView) findViewById(R.id.recycler_view2);
+        view = (RecyclerView) findViewById(R.id.rvlocklist);
         mLayoutManager = new LinearLayoutManager(this);
         view.setLayoutManager(mLayoutManager);
          lists = new Adapter_Lists(li);

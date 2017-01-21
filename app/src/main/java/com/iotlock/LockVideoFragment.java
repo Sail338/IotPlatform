@@ -1,16 +1,23 @@
 package com.iotlock;
 
 import android.app.Fragment;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.CompoundButton;
+import android.widget.MediaController;
 import android.widget.ToggleButton;
+import android.widget.VideoView;
 import okhttp3.*;
 
+
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 
 /**
@@ -36,8 +43,13 @@ public class LockVideoFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
+    public void onResume() {
+        super.onResume();
         ToggleButton bar = (ToggleButton)v.findViewById(R.id.tb1);
+        WebView view = (WebView)v.findViewById(R.id.webview);
+        view.getSettings().setJavaScriptEnabled(true);
+
+        view.loadUrl("http://10.251.66.175:8080/videofeed");
 
         bar.setOnCheckedChangeListener( new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -88,10 +100,6 @@ public class LockVideoFragment extends Fragment {
             }
         });
 
-
-
-        super.onActivityCreated(savedInstanceState);
-        //Load Toggles
 
 
     }

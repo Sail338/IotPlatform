@@ -1,14 +1,11 @@
 package com.iotlock;
 
-import  android.support.v4.app.Fragment;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -36,7 +33,6 @@ public class Adapter_Lists extends RecyclerView.Adapter<Adapter_Lists.IotViewHol
               //fragment switch
                 AppCompatActivity appCompatActivity = (AppCompatActivity) view.getContext();
                 LockVideoFragment fragment = new LockVideoFragment();
-
                 appCompatActivity.getFragmentManager().beginTransaction().replace(R.id.content_frame2, fragment).addToBackStack(null).commit();
             }
         });
