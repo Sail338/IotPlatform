@@ -14,15 +14,14 @@
             android:layout_height="238dp" android:layout_weight="0.82">
 
     </WebView>
-    <ToggleButton
+    <Switch
             android:id="@+id/tb1"
-            android:layout_width="wrap_content"
+            android:layout_width="358dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:text="LOCK OR UNLOCK"
-            android:textOff="Unlock"
-            android:textOn="Lock" />
+            android:textOff="LOCKED"
+            android:textOn="UNLOCKED" />
 
 
 </LinearLayout>

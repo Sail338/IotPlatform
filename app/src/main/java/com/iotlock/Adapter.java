@@ -37,6 +37,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.IotViewHolder> {
                   case 0:
                           view.getContext().startActivity(new Intent(view.getContext(),LockList.class));
                           break;
+                  case 1:
+                      view.getContext().startActivity(new Intent(view.getContext(),Lights.class));
+                      break;
                   case 2:
                          view.getContext().startActivity(new Intent(view.getContext(),Thermostat.class));
                          break;

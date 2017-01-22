@@ -1,0 +1,42 @@
+<html>
+<div id="counter">67</div>
+<script>
+	var start = 67
+	function linear (duration, range, current) {
+		  return ((duration * 2) / Math.pow(range, 2)) * current;
+	}
+function constant (duration, range, current) {
+	  return duration / range;
+}
+
+function animateValue(id, start, end, duration) {
+	var end = {{val}};
+  var range = end - start;
+  var current = start;
+  
+  var increment = end > start? 0 : +1;
+  var obj = document.getElementById(id);
+  var remainderTime = 0;
+  
+  var step = function() {
+    current += 1;
+    obj.innerHTML = current;
+    if(current >=end){
+		
+    } 
+    if (current != end) {
+      setTimeout(step, constant(duration, range, current));
+    }
+    else {
+      console.log('Elapsed time: ', new Date() - startTime)
+      console.log('');
+    }
+  };
+  
+  setTimeout(step, constant(duration, range, start));
+}
+  
+animateValue("counter", 67, {{val}}, 3000);
+</script>
+
+</html>

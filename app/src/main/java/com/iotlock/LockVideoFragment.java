@@ -9,10 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
-import android.widget.CompoundButton;
-import android.widget.MediaController;
-import android.widget.ToggleButton;
-import android.widget.VideoView;
+import android.widget.*;
 import okhttp3.*;
 
 
@@ -45,23 +42,21 @@ public class LockVideoFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        ToggleButton bar = (ToggleButton)v.findViewById(R.id.tb1);
+        Switch bar = (Switch)v.findViewById(R.id.tb1);
         WebView view = (WebView)v.findViewById(R.id.webview);
         view.getSettings().setJavaScriptEnabled(true);
 
         view.loadUrl("http://10.251.66.175:8080/videofeed");
-
+        bar.setText("LOCKED");
         bar.setOnCheckedChangeListener( new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton toggleButton, boolean isChecked) {
                 if (isChecked) {
-                    //LOCK
-
+                    //UNLOCKED
+                    bar.setText("UNLOCKED");
                     OkHttpClient client = new OkHttpClient();
 
-                    RequestBody formBody = new FormBody.Builder()
-                            .add("message", "!")
-                            .build();
+                    Constants.isLocked = false;
                     Request request = new Request.Builder()
                             .url("http://10.251.90.136?message=!")
                             .build();
@@ -90,10 +85,10 @@ public class LockVideoFragment extends Fragment {
 
 
                 } else {
-                    //LOCK
-
+                    //LOCKED
+                    bar.setText("LOCKED");
                     OkHttpClient client = new OkHttpClient();
-
+                    Constants.isLocked = true;
                     RequestBody formBody = new FormBody.Builder()
                             .add("message", "@")
                             .build();
