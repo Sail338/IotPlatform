@@ -28,15 +28,13 @@ function animateValue(id, start, end, duration) {
       setTimeout(step, constant(duration, range, current));
     }
     else {
-      console.log('Elapsed time: ', new Date() - startTime)
-      console.log('');
     }
   };
   
   setTimeout(step, constant(duration, range, start));
 }
   
-animateValue("counter", 67, {{val}}, 3000);
+animateValue("counter", 67, {{val}}, 10000);
 </script>
 
 </html>
