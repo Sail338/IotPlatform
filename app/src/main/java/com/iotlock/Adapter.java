@@ -36,8 +36,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.IotViewHolder> {
                   //OPEN LOCK FRAGMENT
                   case 0:
                         view.getContext().startActivity(new Intent(view.getContext(),LockList.class));
+                        break;
                   case 2:
                       view.getContext().startActivity(new Intent(view.getContext(),Thermostat.class));
+                      break;
+
               }
 
           }
