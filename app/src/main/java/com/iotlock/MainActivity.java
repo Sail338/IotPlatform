@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         persons = new ArrayList<>();
         persons.add(new IotThing("Lock",R.drawable.images));
         persons.add(new IotThing("Lights",R.drawable.blash));
+        persons.add(new IotThing("Thermostat",R.drawable.wifithermostat));
 
     }
     private void initAdapter(){

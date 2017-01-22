@@ -60,18 +60,32 @@ public class LockVideoFragment extends Fragment {
                     OkHttpClient client = new OkHttpClient();
 
                     RequestBody formBody = new FormBody.Builder()
-                            .add("message", "@")
+                            .add("message", "!")
                             .build();
                     Request request = new Request.Builder()
                             .url("http://www.foo.bar/index.php")
                             .post(formBody)
                             .build();
 
+
+
                     try {
-                        Response response = client.newCall(request).execute();
+                     client.newCall(request).enqueue(new Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+
+                            }
+
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException {
+                                    if(response.isSuccessful()){
+
+                                    }
+                            }
+                        });
 
                         // Do something with the response.
-                    } catch (IOException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
 
@@ -82,7 +96,7 @@ public class LockVideoFragment extends Fragment {
                     OkHttpClient client = new OkHttpClient();
 
                     RequestBody formBody = new FormBody.Builder()
-                            .add("message", "!")
+                            .add("message", "@")
                             .build();
                     Request request = new Request.Builder()
                             .url("http://www.foo.bar/index.php")
@@ -90,17 +104,26 @@ public class LockVideoFragment extends Fragment {
                             .build();
 
                     try {
-                        Response response = client.newCall(request).execute();
+                        client.newCall(request).enqueue(new Callback() {
+                            @Override
+                            public void onFailure(Call call, IOException e) {
+
+                            }
+
+                            @Override
+                            public void onResponse(Call call, Response response) throws IOException {
+                                    if(response.isSuccessful()){
+
+                                    }
+                            }
+                        });
 
                         // Do something with the response.
-                    } catch (IOException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
             }
         });
-
-
-
     }
 }
