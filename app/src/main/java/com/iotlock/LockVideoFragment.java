@@ -63,8 +63,7 @@ public class LockVideoFragment extends Fragment {
                             .add("message", "!")
                             .build();
                     Request request = new Request.Builder()
-                            .url("http://www.foo.bar/index.php")
-                            .post(formBody)
+                            .url("http://10.251.90.136?message=!")
                             .build();
 
 
@@ -99,8 +98,7 @@ public class LockVideoFragment extends Fragment {
                             .add("message", "@")
                             .build();
                     Request request = new Request.Builder()
-                            .url("http://www.foo.bar/index.php")
-                            .post(formBody)
+                            .url("http://10.251.90.136/?message=@")
                             .build();
 
                     try {
